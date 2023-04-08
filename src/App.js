@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
 import { createISODateString } from './utils';
+import { Navigation } from './components/navigation';
 
 function App() {
   const [dataState, setDataState] = useState('requesting')
@@ -40,7 +41,7 @@ function App() {
     dataFetchHandle()
   }, [])
   return <>
-    
+    <Navigation status={dataState} otherDate={(data && data.tradingDate) && data.tradingDate} />
   </>;
 }
 

@@ -1,0 +1,22 @@
+.bar {
+  animation: loading-animation ease-in-out 1.5s infinite;
+  height: 8px;
+  position: absolute;
+  top: 0px;
+  background: var(--color-primary)
+}
+
+@keyframes loading-animation {
+  0% {
+    width: 0%;
+    left: 0%;
+  }
+  50% {
+    width: 100%;
+    left: 0%;
+  }
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
