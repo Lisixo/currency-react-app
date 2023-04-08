@@ -7,6 +7,8 @@ import { CardGrid } from './components/card';
 function App() {
   const [dataState, setDataState] = useState('requesting')
   const [data, setData] = useState(null)
+  
+  const d = new Date()
 
   async function dataFetchHandle(date){
     try{
@@ -17,7 +19,6 @@ function App() {
       )
 
       if(res.status === 404){
-        const d = new Date()
         d.setDate(d.getDate() - 1)
 
         await dataFetchHandle(createISODateString(d))
