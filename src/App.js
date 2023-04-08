@@ -2,11 +2,10 @@ import './App.css';
 import React, { useState, useEffect } from 'react'
 import { createISODateString } from './utils';
 import { Navigation } from './components/navigation';
+import { CardGrid } from './components/card';
 
 function App() {
   const [dataState, setDataState] = useState('requesting')
-  const [usingOtherDate, setUsingOtherDate] = useState(false)
-
   const [data, setData] = useState(null)
 
   async function dataFetchHandle(date){
@@ -18,8 +17,6 @@ function App() {
       )
 
       if(res.status === 404){
-        setUsingOtherDate(true)
-
         const d = new Date()
         d.setDate(d.getDate() - 1)
 
@@ -42,6 +39,9 @@ function App() {
   }, [])
   return <>
     <Navigation status={dataState} otherDate={(data && data.tradingDate) && data.tradingDate} />
+    {
+      data && <CardGrid data={data} />
+    }
   </>;
 }
 

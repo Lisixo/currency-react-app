@@ -1,0 +1,47 @@
+.container {
+  margin: 16px 8px;
+  color: white
+}
+
+.wrapper {
+  display: grid;
+  /* Tworzy 2 rzędy o równych rozmiarach */
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: grid;
+  background: var(--color-primary);
+  grid-template-areas: 
+    "title title"
+    "buy sell";
+  
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.card_title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-area: title;
+  border-bottom: 2px solid var(--primary);
+}
+.card_header{
+  font-weight: bold;
+  font-size: x-large;
+}
+.card_sell{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  grid-area: sell;
+  text-align: end;
+}
+.card_buy{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  grid-area: buy;
+}
